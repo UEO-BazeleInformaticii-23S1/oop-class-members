@@ -2,14 +2,14 @@
 {
     internal class Person
     {
-        public string FirstName = "John";
+        private string _firstName = "John";
 
-        public string LastName = "Doe";
+        private string _fastName = "Doe";
 
         // readonly field can be modified from the initialization expression (#1)
-        public readonly string CNP = "1234";
+        private readonly string _cnp = "1234";
 
-        public static int PopulationCount = 0;
+        private static int populationCount = 0;
 
         public static readonly int MaxLifespanYears = InitMaxLifespan();
 
@@ -17,7 +17,28 @@
         public Person(string cnp)
         {
             // readonly field can be modified from the constructor (#2)
-            CNP = cnp;
+            _cnp = cnp;
+        }
+
+        public string FirstName
+        {
+            get 
+            {
+                return _firstName;
+            }
+            set 
+            { 
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _firstName = value;
+                }
+                else
+                {
+                    // or raise error
+                    _firstName = string.Empty;
+                }
+                
+            }
         }
 
         public void PrintPerson()
