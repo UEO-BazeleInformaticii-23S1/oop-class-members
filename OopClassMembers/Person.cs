@@ -4,12 +4,12 @@
     {
         private string _firstName = "John";
 
-        private string _fastName = "Doe";
+        private string _lastName = "Doe";
 
         // readonly field can be modified from the initialization expression (#1)
         private readonly string _cnp = "1234";
 
-        private static int populationCount = 0;
+        private static int _populationCount = 0;
 
         public static readonly int MaxLifespanYears = InitMaxLifespan();
 
@@ -18,6 +18,9 @@
         {
             // readonly field can be modified from the constructor (#2)
             _cnp = cnp;
+
+            // each time a new person gets created, populationCount is incremented
+            Person._populationCount++;
         }
 
         public string FirstName
@@ -39,6 +42,22 @@
                 }
                 
             }
+        }
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set { _lastName = value; }
+        }
+
+        public string Cnp
+        {
+            get { return _cnp; }
+        }
+
+        public static int PopulationCount
+        {
+            get { return Person._populationCount; }
         }
 
         public void PrintPerson()
