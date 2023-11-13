@@ -29,6 +29,26 @@ namespace OopClassMembers
             _array = array;
         }
 
+        public int this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < _array.Length)
+                {
+                    return _array[index];
+                }
+
+                throw new IndexOutOfRangeException($"Index must be between 0 and {_array.Length - 1}");
+            }
+            set 
+            {
+                if (index >= 0 && index < _array.Length)
+                {
+                    _array[index] = value;
+                }
+            }     
+        }
+
         public int Min()
         {
             int min = _array[0];

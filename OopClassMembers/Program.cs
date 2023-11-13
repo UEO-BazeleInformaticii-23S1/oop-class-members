@@ -4,6 +4,11 @@
     {
         static void Main(string[] args)
         {
+            IntArray intArray = new IntArray(new[] { 1, 2, 3 });
+            int min = intArray.Min();
+            intArray[0] = 123;
+
+
             int noOfPersons = ReadNumber("Number of persons=", 3);
             Person[] arrayOfPersons = new Person[noOfPersons];
             for (int i = 0; i < arrayOfPersons.Length; i++)
