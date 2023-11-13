@@ -6,8 +6,10 @@
         {
             int noOfPersons = ReadNumber("Number of persons=", 3);
             Person[] arrayOfPersons = new Person[noOfPersons];
-            for (int i = 0; i < noOfPersons; i++)
+            for (int i = 0; i < arrayOfPersons.Length; i++)
             {
+                Console.WriteLine($"Reading person at index {i}");
+
                 Console.Write("FirstName=");
                 string firstName = Console.ReadLine();
 
@@ -24,20 +26,32 @@
                 arrayOfPersons[i] = p;
             }
 
+            Console.WriteLine("Printing persons: ");
+            for (int i = 0; i < arrayOfPersons.Length; i++)
+            {
+                //arrayOfPersons[i].PrintPerson();
+                Person p = arrayOfPersons[i];
+                Console.WriteLine(p.FirstName + " " + p.LastName + " - CNP: " + p.Cnp);
+            }
+
+            Console.WriteLine("Total population count: " + Person.PopulationCount);
+
+
+
 
             //int maxLifespan = Person.MaxLifespanYears;
             //Person p = new Person("2344");
             //p.FirstName = "Florin";
 
-            //Console.WriteLine(Person.PopulationCount);
-            //Console.WriteLine(p.FirstName);
-            //Console.WriteLine(p.LastName);
-            //Console.WriteLine(p.Cnp);
+                //Console.WriteLine(Person.PopulationCount);
+                //Console.WriteLine(p.FirstName);
+                //Console.WriteLine(p.LastName);
+                //Console.WriteLine(p.Cnp);
 
 
-            //Person.MaxLifespanYears
-            //p.Cnp = "2344";
-            //Person.PopulationCount = 1;
+                //Person.MaxLifespanYears
+                //p.Cnp = "2344";
+                //Person.PopulationCount = 1;
         }
 
         static int ReadNumber(string label, int maxAttempts)

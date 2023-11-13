@@ -27,7 +27,7 @@
 
         public void PrintPerson()
         {
-            
+            Console.WriteLine($"{FirstName} {LastName} - CNP: {Cnp}");
         }
 
         public static void PrintPopulationCount()
@@ -37,8 +37,9 @@
 
         public static int InitMaxLifespan()
         {
-            Console.Write("Max Lifespan=");
-            return Convert.ToInt32(Console.ReadLine());
+            return 125;
+            //Console.Write("Max Lifespan=");
+            //return Convert.ToInt32(Console.ReadLine());
         }
     }
 }
